@@ -1,0 +1,7 @@
+.DS_Store
+.ipynb_checkpoints/
+image1.jpg
+yolov8n-seg.pt
+yolov8n.pt
+yolov8s.pt
+yolov8x.pt
