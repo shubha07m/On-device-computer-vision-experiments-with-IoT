@@ -1,5 +1,8 @@
 ## yolov8 for object detection and tracking from live camera feed ##
 
+![alt text](https://github.com/shubha07m/yolov8-testing/blob/main/yolov8_snap.png?raw=true)
+
+
 I utilized the latest version of YOLO, V8, developed by Ultralytics, to construct an object detection demonstration. I used the Ultralytics library to enable detection and tracking tasks from a live camera feed.
 
 To facilitate a rapid and simplistic implementation, I utilized my OnePlus 6 android phone as a live camera device. I used a free limentary application called "Camo Studio", which I installed on both my phone and M1 MacBook Air. This application permits my phone's camera to function as an external webcam for my laptop. The primary objective of this project was to simulate a surveillance camera scenario for detecting both vehicles and pedestrians.
