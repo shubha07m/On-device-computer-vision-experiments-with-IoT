@@ -10,7 +10,7 @@ For reference, here are the relevant resources I employed for Ultralytics and Ca
 https://github.com/ultralytics/ultralytics
 https://reincubate.com/camo/
 
-Using the above idea, UNIMODAL was developed for search and disaster recovery and was tested with older versions of YOLO (V3, V4 and V7). My paper on the same can be accessed here: 
+Using the above idea, UNIMODAL was developed for search and disaster recovery and was tested with older versions of YOLO (V3, V4 and V7). My paper on the same can be accessed here: https://ieeexplore.ieee.org/document/10025436
 
 S. Mukherjee, O. Coudert and C. Beard, "UNIMODAL: UAV-Aided Infrared Imaging Based Object Detection and Localization for Search and Disaster Recovery," 2022 IEEE International Symposium on Technologies for Homeland Security (HST), Boston, MA, USA, 2022, pp. 1-6, doi: 10.1109/HST56032.2022.10025436.
 
