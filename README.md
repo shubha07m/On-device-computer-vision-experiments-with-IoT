@@ -10,7 +10,9 @@ To facilitate a rapid and simplistic implementation, I utilized my OnePlus 6 and
 During my experimentation with various pre-trained YOLOv8 models, I discovered that the YOLOv8n variant was efficient enough at detecting and tracking fast-moving traffic even in low-light and nocturnal conditions.
 
 For reference, here are the relevant resources I employed for Ultralytics and Camo:
+
 https://github.com/ultralytics/ultralytics
+
 https://reincubate.com/camo/
 
 Using the above idea, UNIMODAL was developed for search and disaster recovery and was tested with older versions of YOLO (V3, V4 and V7). My paper on the same can be accessed here: https://ieeexplore.ieee.org/document/10025436
