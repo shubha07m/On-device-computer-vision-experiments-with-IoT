@@ -7,7 +7,7 @@ def temp_monitoring(temp_alarm = 70):
 
     temp_current = float(a)/1000
 
-    print("current temparature of the raspberry CPU is: %.2f" % temp_current)
+    print("current temperature of the raspberry CPU is: %.2f" % temp_current)
 
     if(temp_current > temp_alarm):
         
