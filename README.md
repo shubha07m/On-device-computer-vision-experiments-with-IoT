@@ -24,7 +24,7 @@ S. Mukherjee, O. Coudert and C. Beard, "UNIMODAL: UAV-Aided Infrared Imaging Bas
 
 ![alt text](https://github.com/shubha07m/yolov8-testing/blob/main/from_pi/rpi4b.png)
 
-I used a CanaKit based raspberry pi version 4B (BullsEye OS) and an USB camera for object detection this time. Few of the interesting features were tested this time:
+I used a CanaKit based raspberry pi version 4B (CanaKit extreme, 128 Gb, 8Gb, BullsEye OS) and an USB camera for object detection this time. Few of the interesting features were tested this time:
 
 1. YOLOV8 ('yolov8n.pt' the smaller moodel by Ultralytics) were tested working successfully with a much smaller capacity CPU based IoT system.
 2. An audio based alert system on detection with various conditions and parameters was tested.
@@ -38,7 +38,7 @@ Few of the learnings are:
 3. Raspberry pi board reaches upto 60 within 15 minutes of run roughly, although usually pi works fine upto 80 deg C.
 
 
-For code and demo detection videos please refer to the from_pi section of the repo.
+For code and demo detection videos please refer to the [from_pi](https://github.com/shubha07m/yolov8-testing/tree/main/from_pi) section of the repo.
 
 
 
