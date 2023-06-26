@@ -22,6 +22,8 @@ S. Mukherjee, O. Coudert and C. Beard, "UNIMODAL: UAV-Aided Infrared Imaging Bas
 
 ## Raspberry pi based human / other object detection, audio alarm creation in CPU temperature controlled environment ##
 
+![alt text](https://github.com/shubha07m/yolov8-testing/blob/main/from_pi/rpi4b.png)
+
 I used a CanaKit based raspberry pi version 4B (BullsEye OS) and an USB camera for object detection this time. Few of the interesting features were tested this time:
 
 1. YOLOV8 ('yolov8n.pt' the smaller moodel by Ultralytics) were tested working successfully with a much smaller capacity CPU based IoT system.
