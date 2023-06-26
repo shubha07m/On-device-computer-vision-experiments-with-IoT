@@ -20,13 +20,13 @@ Using the above idea, UNIMODAL was developed for search and disaster recovery an
 S. Mukherjee, O. Coudert and C. Beard, "UNIMODAL: UAV-Aided Infrared Imaging Based Object Detection and Localization for Search and Disaster Recovery," 2022 IEEE International Symposium on Technologies for Homeland Security (HST), Boston, MA, USA, 2022, pp. 1-6, doi: 10.1109/HST56032.2022.10025436.
 
 
-## Raspberry pi based human / other object detection, audio alarm creation in CPU temperature controlled environment ##
+## Raspberry pi based human / other object detection and audio notification with CPU temperature controlled environment ##
 
 ![alt text](https://github.com/shubha07m/yolov8-testing/blob/main/from_pi/rpi4b.png)
 
-I used a CanaKit based raspberry pi version 4B (CanaKit extreme, 128 Gb, 8Gb, BullsEye OS) and an USB camera for object detection this time. Few of the interesting features were tested this time:
+I used a [CanaKit](https://www.amazon.com/dp/B08B6F1FV5?psc=1&ref=ppx_yo2ov_dt_b_product_details) based raspberry pi version 4B (CanaKit extreme, 128 Gb, 8Gb, BullsEye OS) and an USB camera for object detection this time. Few of the interesting features were tested this time:
 
-1. YOLOV8 ('yolov8n.pt' the smaller moodel by Ultralytics) were tested working successfully with a much smaller capacity CPU based IoT system.
+1. YOLOV8 ('yolov8n.pt' the smaller model by Ultralytics) were tested working successfully with a much smaller capacity CPU based IoT system.
 2. An audio based alert system on detection with various conditions and parameters was tested.
 3. A predefined CPU temperature threshold was used to control the run, such that the detection ends when it crosses a certain CPU temperature.
 4. Inside house or low-light outside environment were also tested.
