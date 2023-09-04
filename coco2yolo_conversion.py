@@ -8,20 +8,17 @@ The current one uses a FLIR V2 infrared dataset as an example.
 
 Note:
 1. Make sure the source (unzipped folder) and this script is in
-the same path. 
-2. For testing with a small samples (default 10)
-select 1, else use 0 as argument.
-3. This script use multiprocessing for Process-based parallelism.
+the same path.
+2. For testing with some small samples enter the number,
+else use 0 as argument to access all samples.
 
 Author: Shubh
-Date: August 31, 2023
+Date: Sept 4, 2023
 """
 import json
 import os
 import shutil
 import time
-from multiprocessing import Process
-
 
 t = time.time()
 
@@ -60,23 +57,21 @@ def get_data_type(part, thermal):
 def save_images_folder(thermal, data_part):
     file_names = []
     database = get_data_type(data_part, thermal)
-    count = 0
+    count_img = 0
     start = os.path.join(input_path, database, 'data')
 
     for filename in os.listdir(start):
         source = os.path.join(start, filename)
         if thermal:
-            destination = f"{new_yolodata_path}/flirv2_thermal/{data_part}/images/img{count}.jpg"
+            destination = f"{new_yolodata_path}/flirv2_thermal/{data_part}/images/img{count_img}.jpg"
         else:
-            destination = f"{new_yolodata_path}/flirv2_rgb/{data_part}/images/img{count}.jpg"
+            destination = f"{new_yolodata_path}/flirv2_rgb/{data_part}/images/img{count_img}.jpg"
 
         shutil.copy(source, destination)
         file_names.append(filename)
-        count += 1
-
-        if count > count_max:
+        count_img += 1
+        if count_img == count_max:
             break
-
     return file_names
 
 
@@ -89,55 +84,79 @@ def get_coco_jsonfile(thermal, data_type):
 
 def get_img_ann(image_id, thermal, data_type):
     data = get_coco_jsonfile(thermal, data_type)
-    img_ann = [ann for ann in data['annotations'] if ann['image_id'] == image_id]
-    return img_ann
+    img_ann = []
+    isFound = False
+    for ann in data['annotations']:
+        if ann['image_id'] == image_id:
+            img_ann.append(ann)
+            isFound = True
+    if isFound:
+        return img_ann
+    else:
+        return None
 
 
 def get_img(filename, thermal, data_type):
     data = get_coco_jsonfile(thermal, data_type)
-    img = next((img for img in data['images'] if img['file_name'][5:] == filename), None)
-    return img
+    for img in data['images']:
+        if img['file_name'] == ('data/' + filename):
+            return img
 
 
 def save_annotation_folder(thermal, data_type):
-    fnames = save_images_folder(thermal, data_type)
+    file_names = save_images_folder(thermal, data_type)
     count = 0
-    for filename in fnames:
+    for filename in file_names:
+        # Extracting image
         img = get_img(filename, thermal, data_type)
         if img is None:
-            print(f"Image not found: {filename} in {data_type} dataset.")
+            print(f"Warning: {filename} returned None")
             continue
+
         img_id = img['id']
         img_w = img['width']
         img_h = img['height']
+
+        # Get Annotations for this image
         img_ann = get_img_ann(img_id, thermal, data_type)
 
         if img_ann:
             folder = 'flirv2_thermal' if thermal else 'flirv2_rgb'
-            labels_folder = f"{new_yolodata_path}/{folder}/{data_type}/labels"
-            os.makedirs(labels_folder, exist_ok=True)
-            label_filename = f"{labels_folder}/img{count}.txt"
+        # Opening file for current image
+            file_object = open(f"{new_yolodata_path}/{folder}/{data_type}/labels/img{count}.txt", "a")
 
-            with open(label_filename, "a") as file_object:
-                for ann in img_ann:
-                    current_category = ann['category_id'] - 1
-                    current_bbox = ann['bbox']
-                    x, y, w, h = current_bbox
+            for ann in img_ann:
+                current_category = ann['category_id'] - 1  # As yolo format labels start from 0
+                current_bbox = ann['bbox']
+                x = current_bbox[0]
+                y = current_bbox[1]
+                w = current_bbox[2]
+                h = current_bbox[3]
 
-                    x_centre = (x + (x + w)) / 2
-                    y_centre = (y + (y + h)) / 2
-                    x_centre /= img_w
-                    y_centre /= img_h
-                    w /= img_w
-                    h /= img_h
+                # Finding midpoints
+                x_centre = (x + (x + w)) / 2
+                y_centre = (y + (y + h)) / 2
 
-                    line = f"{current_category} {x_centre:.6f} {y_centre:.6f} {w:.6f} {h:.6f}\n"
-                    file_object.write(line)
+                # Normalization
+                x_centre = x_centre / img_w
+                y_centre = y_centre / img_h
+                w = w / img_w
+                h = h / img_h
 
-            count += 1
+                # Limiting upto fix number of decimal places
+                x_centre = format(x_centre, '.6f')
+                y_centre = format(y_centre, '.6f')
+                w = format(w, '.6f')
+                h = format(h, '.6f')
 
-            if count > count_max:
-                break
+                # Writing current object
+                file_object.write(f"{current_category} {x_centre} {y_centre} {w} {h}\n")
+
+            file_object.close()
+
+        count += 1  # This should be outside the if img_ann block.
+        if count == count_max:
+            break
 
 
 if __name__ == '__main__':
@@ -145,20 +164,15 @@ if __name__ == '__main__':
     new_yolodata_path = folder_creation(current_path)
 
     # For testing only#
-
-    print('testing or actual - enter 1 for testing, else 0:\n')
-
+    print('Please enter the sample per folder else enter 0 for all:\n')
     testing = int(input())
     if testing:
-        count_max = 9
+        count_max = testing
     else:
         count_max = 50000
 
-
     for thermal in [0, 1]:
         for data_type in ['train', 'val', 'test']:
-            p = Process(target=save_annotation_folder, args=(thermal, data_type))
-            p.start()
-            p.join()
+            save_annotation_folder(thermal, data_type)
 
 print(time.time() - t)
