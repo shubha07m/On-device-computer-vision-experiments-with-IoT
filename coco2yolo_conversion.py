@@ -12,8 +12,10 @@ the same path.
 2. For testing with some small samples enter the number,
 else use 0 as argument to access all samples.
 
+* This script can now handle multiple types of missing annotations issues. *
+
 Author: Shubh
-Date: Sept 4, 2023
+Date: Sept 8, 2023
 """
 import json
 import os
@@ -54,36 +56,38 @@ def get_data_type(part, thermal):
         }[part]
 
 
-def save_images_folder(thermal, data_part):
+def save_images_folder(data_part, thermal):
     file_names = []
     database = get_data_type(data_part, thermal)
-    count_img = 0
     start = os.path.join(input_path, database, 'data')
+    count_img = 0
+    if thermal:
+        destination_img_folder = f"{new_yolodata_path}/flirv2_thermal/{data_part}/images"
+    else:
+        destination_img_folder = f"{new_yolodata_path}/flirv2_rgb/{data_part}/images"
 
     for filename in os.listdir(start):
-        source = os.path.join(start, filename)
-        if thermal:
-            destination = f"{new_yolodata_path}/flirv2_thermal/{data_part}/images/img{count_img}.jpg"
-        else:
-            destination = f"{new_yolodata_path}/flirv2_rgb/{data_part}/images/img{count_img}.jpg"
+        if not filename.startswith('.'):
+            source = os.path.join(start, filename)
+            destination = f"{destination_img_folder}/img{count_img}.jpg"
 
-        shutil.copy(source, destination)
-        file_names.append(filename)
-        count_img += 1
-        if count_img == count_max:
-            break
+            shutil.copy(source, destination)
+            file_names.append(filename)
+            count_img += 1
+            if count_img == count_max: # Handling limited number samples curation
+                break
     return file_names
 
 
-def get_coco_jsonfile(thermal, data_type):
+def get_coco_jsonfile(data_type, thermal):
     database = get_data_type(data_type, thermal)
     with open(os.path.join(input_path, database, 'coco.json')) as f:
         cocodata = json.load(f)
     return cocodata
 
 
-def get_img_ann(image_id, thermal, data_type):
-    data = get_coco_jsonfile(thermal, data_type)
+def get_img_ann(image_id, data_type, thermal):
+    data = get_coco_jsonfile(data_type, thermal)
     img_ann = []
     isFound = False
     for ann in data['annotations']:
@@ -96,33 +100,43 @@ def get_img_ann(image_id, thermal, data_type):
         return None
 
 
-def get_img(filename, thermal, data_type):
-    data = get_coco_jsonfile(thermal, data_type)
+def get_img(filename, data_type, thermal):
+    data = get_coco_jsonfile(data_type, thermal)
     for img in data['images']:
         if img['file_name'] == ('data/' + filename):
             return img
 
 
-def save_annotation_folder(thermal, data_type):
-    file_names = save_images_folder(thermal, data_type)
+def save_annotation_folder(data_type, thermal):
+    file_names = save_images_folder(data_type, thermal)
     count = 0
+    folder = 'flirv2_thermal' if thermal else 'flirv2_rgb'
+
     for filename in file_names:
         # Extracting image
-        img = get_img(filename, thermal, data_type)
-        if img is None:
+        img = get_img(filename, data_type, thermal)
+
+        if img is None: # Handling if image file is not referenced in annotation
             print(f"Warning: {filename} returned None")
+            os.remove(f"{new_yolodata_path}/{folder}/{data_type}/images/img{count}.jpg")
+            count += 1
             continue
 
         img_id = img['id']
         img_w = img['width']
         img_h = img['height']
 
-        # Get Annotations for this image
-        img_ann = get_img_ann(img_id, thermal, data_type)
+        # # Get Annotations for this image
+        img_ann = get_img_ann(img_id, data_type, thermal)
+
+        if img_ann is None:  # Handling if annotation box is not present for an image
+            print(f"Warning: {filename} returned None")
+            os.remove(f"{new_yolodata_path}/{folder}/{data_type}/images/img{count}.jpg")
+            count += 1
+            continue
 
         if img_ann:
-            folder = 'flirv2_thermal' if thermal else 'flirv2_rgb'
-        # Opening file for current image
+            # Opening file for current image
             file_object = open(f"{new_yolodata_path}/{folder}/{data_type}/labels/img{count}.txt", "a")
 
             for ann in img_ann:
@@ -143,7 +157,7 @@ def save_annotation_folder(thermal, data_type):
                 w = w / img_w
                 h = h / img_h
 
-                # Limiting upto fix number of decimal places
+                # Limiting up-to fix number of decimal places
                 x_centre = format(x_centre, '.6f')
                 y_centre = format(y_centre, '.6f')
                 w = format(w, '.6f')
@@ -154,7 +168,7 @@ def save_annotation_folder(thermal, data_type):
 
             file_object.close()
 
-        count += 1  # This should be outside the if img_ann block.
+        count += 1
         if count == count_max:
             break
 
@@ -163,7 +177,6 @@ if __name__ == '__main__':
     current_path = os.getcwd()
     new_yolodata_path = folder_creation(current_path)
 
-    # For testing only#
     print('Please enter the sample per folder else enter 0 for all:\n')
     testing = int(input())
     if testing:
@@ -173,6 +186,6 @@ if __name__ == '__main__':
 
     for thermal in [0, 1]:
         for data_type in ['train', 'val', 'test']:
-            save_annotation_folder(thermal, data_type)
+            save_annotation_folder(data_type, thermal)
 
 print(time.time() - t)
