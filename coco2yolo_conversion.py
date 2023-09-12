@@ -15,7 +15,7 @@ else use 0 as argument to access all samples.
 * This script can now handle multiple types of missing annotations issues. *
 
 Author: Shubh
-Date: Sept 8, 2023
+Date: Sept 12, 2023
 """
 import json
 import os
@@ -30,8 +30,8 @@ input_path = os.path.join(current_path, "FLIR_ADAS_v2")
 
 # Creation of new folder structure #
 def folder_creation(base_path):
-    os.makedirs(os.path.join(base_path, "flirv2_yoloformat"), exist_ok=True)
-    output_path = os.path.join(base_path, "flirv2_yoloformat")
+    os.makedirs(os.path.join(base_path, "FLIR_V2_curated_dataset"), exist_ok=True)
+    output_path = os.path.join(base_path, "FLIR_V2_curated_dataset")
 
     for img_type in ['flirv2_rgb', 'flirv2_thermal']:
         for data_type in ['train', 'val', 'test']:
@@ -74,7 +74,7 @@ def save_images_folder(data_part, thermal):
             shutil.copy(source, destination)
             file_names.append(filename)
             count_img += 1
-            if count_img == count_max: # Handling limited number samples curation
+            if count_img == count_max:  # Handling limited number samples curation
                 break
     return file_names
 
@@ -116,7 +116,7 @@ def save_annotation_folder(data_type, thermal):
         # Extracting image
         img = get_img(filename, data_type, thermal)
 
-        if img is None: # Handling if image file is not referenced in annotation
+        if img is None:  # Handling if image file is not referenced in annotation
             print(f"Warning: {filename} returned None")
             os.remove(f"{new_yolodata_path}/{folder}/{data_type}/images/img{count}.jpg")
             count += 1
@@ -141,30 +141,31 @@ def save_annotation_folder(data_type, thermal):
 
             for ann in img_ann:
                 current_category = ann['category_id'] - 1  # As yolo format labels start from 0
-                current_bbox = ann['bbox']
-                x = current_bbox[0]
-                y = current_bbox[1]
-                w = current_bbox[2]
-                h = current_bbox[3]
+                if 14 >= current_category >= 0:  # Handling if class ids are wrongly labeled
+                    current_bbox = ann['bbox']
+                    x = current_bbox[0]
+                    y = current_bbox[1]
+                    w = current_bbox[2]
+                    h = current_bbox[3]
 
-                # Finding midpoints
-                x_centre = (x + (x + w)) / 2
-                y_centre = (y + (y + h)) / 2
+                    # Finding midpoints
+                    x_centre = (x + (x + w)) / 2
+                    y_centre = (y + (y + h)) / 2
 
-                # Normalization
-                x_centre = x_centre / img_w
-                y_centre = y_centre / img_h
-                w = w / img_w
-                h = h / img_h
+                    # Normalization
+                    x_centre = x_centre / img_w
+                    y_centre = y_centre / img_h
+                    w = w / img_w
+                    h = h / img_h
 
-                # Limiting up-to fix number of decimal places
-                x_centre = format(x_centre, '.6f')
-                y_centre = format(y_centre, '.6f')
-                w = format(w, '.6f')
-                h = format(h, '.6f')
+                    # Limiting up-to fix number of decimal places
+                    x_centre = format(x_centre, '.6f')
+                    y_centre = format(y_centre, '.6f')
+                    w = format(w, '.6f')
+                    h = format(h, '.6f')
 
-                # Writing current object
-                file_object.write(f"{current_category} {x_centre} {y_centre} {w} {h}\n")
+                    # Writing current object
+                    file_object.write(f"{current_category} {x_centre} {y_centre} {w} {h}\n")
 
             file_object.close()
 
