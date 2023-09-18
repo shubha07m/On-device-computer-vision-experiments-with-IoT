@@ -12,10 +12,12 @@ the same path.
 2. For testing with some small samples enter the number,
 else use 0 as argument to access all samples.
 
-* This script can now handle multiple types of missing annotations issues. *
+3. This script can handle multiple types of missing annotations issues.
+
+* This script can now handle wrongly annotated class ids and also limited class choices * 
 
 Author: Shubh
-Date: Sept 12, 2023
+Date: Sept 18, 2023
 """
 import json
 import os
@@ -30,8 +32,8 @@ input_path = os.path.join(current_path, "FLIR_ADAS_v2")
 
 # Creation of new folder structure #
 def folder_creation(base_path):
-    os.makedirs(os.path.join(base_path, "FLIR_V2_curated_dataset"), exist_ok=True)
-    output_path = os.path.join(base_path, "FLIR_V2_curated_dataset")
+    os.makedirs(os.path.join(base_path, "FLIR_V2_curated_limited"), exist_ok=True)
+    output_path = os.path.join(base_path, "FLIR_V2_curated_limited")
 
     for img_type in ['flirv2_rgb', 'flirv2_thermal']:
         for data_type in ['train', 'val', 'test']:
@@ -112,6 +114,11 @@ def save_annotation_folder(data_type, thermal):
     count = 0
     folder = 'flirv2_thermal' if thermal else 'flirv2_rgb'
 
+    # below cat_list can be defined as per classes required, define all
+    # if all classes used, which would be all 0-14 in this case
+
+    cat_list = [0, 2, 9, 11]  # If only selected classes is used not all
+    # cat_list = [i for i in range(15)] # Use this if all 15 classes are used
     for filename in file_names:
         # Extracting image
         img = get_img(filename, data_type, thermal)
@@ -140,8 +147,8 @@ def save_annotation_folder(data_type, thermal):
             file_object = open(f"{new_yolodata_path}/{folder}/{data_type}/labels/img{count}.txt", "a")
 
             for ann in img_ann:
-                current_category = ann['category_id'] - 1  # As yolo format labels start from 0
-                if 14 >= current_category >= 0:  # Handling if class ids are wrongly labeled
+                yolo_category = ann['category_id'] - 1  # converting to YOLO format labels which start from 0
+                if yolo_category in cat_list:  # Handling if class ids are wrongly labeled
                     current_bbox = ann['bbox']
                     x = current_bbox[0]
                     y = current_bbox[1]
@@ -165,7 +172,7 @@ def save_annotation_folder(data_type, thermal):
                     h = format(h, '.6f')
 
                     # Writing current object
-                    file_object.write(f"{current_category} {x_centre} {y_centre} {w} {h}\n")
+                    file_object.write(f"{yolo_category} {x_centre} {y_centre} {w} {h}\n")
 
             file_object.close()
 
