@@ -2,7 +2,7 @@ from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 import os
 
 # Constants for your AWS IoT configuration
-BASE_PATH = os.getcwd()
+BASE_PATH = '/home/nero/Desktop/object_detection/aws_files'
 ROOT_CA_PATH = os.path.join(BASE_PATH,'rootCA.pem')
 PRIVATE_KEY_PATH = os.path.join(BASE_PATH,'my-private.pem.key')
 CERTIFICATE_PATH = os.path.join(BASE_PATH,'my-certificate.pem.crt')
