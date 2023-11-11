@@ -8,8 +8,8 @@ from aws_files.aws_helper import aws_setup, send_data  # Import the send_data fu
 AWS_TOPIC = "yolo"
 client = aws_setup()
 
-def pi_objdetect(model_used='yolov8n.pt', max_temp=60, max_frame=10000, special_obj=0, max_obj_frame=3,
-                 rst_obj_frame=100, conf_thresh=.7):
+def pi_objdetect(max_temp=60, max_frame=10000, special_obj=0, max_obj_frame=3,
+                 rst_obj_frame=100, conf_thresh=.5):
     model = YOLO('yolov8n.pt')
     cap = cv2.VideoCapture(0)
     obj_frame = 0
