@@ -38,5 +38,19 @@ A few of the learnings are:
 3. Raspberry Pi board reaches up to 60 within 15 minutes of running roughly, although usually, pi works fine up to 80 deg C.
 
 
-For code and demo detection videos please refer to the [from_pi](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/tree/main/from_pi) section of the repo.
+## Object detection and notification with multimodal fusion using AWS ##
 
+I recently used my Raspberry Pi to develop a low-light detection and notification system, using AWS. Thanks to my newly trained multimodal YOLO variants (trained on RGB and thermal image fusion data), I was able to achieve decent detection capability even in poor lighting conditions, regardless of the time of day. Here are some of the key learnings from this exercise:
+
+1.  The n variants of models (the smaller models) worked much faster, with decent detection capability compared to the x variants(the larger models with higher accuracy), this is valid for multimodal models as well.
+2.  Although larger variants did run in pi, considering the latency it is impractical to use one for real-time detection, esp. for low-power IoT devices.
+3. The fusion-data-trained multimodal models worked more accurately in low-light conditions compared to the pre-trained versions of YOLOV8.
+4.  The new addition was the AWS-based notification this time. Using AWS IoT core and SNS I built a notification system and worked perfectly.
+5. The smaller multimodal model does false detection occasionally, which is extremely rare and acceptable for the speed.
+6. The Raspberry Pi CPU temperature monitoring system I developed previously was also running parallel to protect my precious Pi!
+
+![alt text](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/main/from_pi/yolov8x_fusion_mac.png)
+
+Note: If you are wondering why the images here look a bit meh, remember the camera was behind double-glazing glass and a net, thereafter the photo of live detection was taken from that monitor. For reference, an out-of-sample RGB detection example by fusion data trained multimodal YOLOV8X model in my Mac is also shown.
+
+For implementation please refer: https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/tree/main/from_pi
