@@ -53,6 +53,9 @@ I recently used my Raspberry Pi to develop a low-light detection and notificatio
 ![alt text](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/main/from_pi/raspberry_pi_setup.png)
 
 
+# Notification in AWS IoT core for person detection #
+![alt text](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/main/from_pi/notification_aws_IoT.png)
+
 # Note # 
 If you are wondering why the images here look a bit meh, remember the camera was behind double-glazing glass and a net, thereafter the photo of live detection was taken from that monitor. For reference, an out-of-sample RGB detection example by fusion data trained multimodal YOLOV8X model in my Mac is also shown.
 
