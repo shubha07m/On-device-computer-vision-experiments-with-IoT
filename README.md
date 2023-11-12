@@ -47,7 +47,9 @@ I recently used my Raspberry Pi to develop a low-light detection and notificatio
 3. The fusion-data-trained multimodal models worked more accurately in low-light conditions compared to the pre-trained versions of YOLOV8.
 4.  The new addition was the AWS-based notification this time. Using AWS IoT core and SNS I built a notification system and worked perfectly.
 5. The smaller multimodal model does false detection occasionally, which is extremely rare and acceptable for the speed.
-6. The Raspberry Pi CPU temperature monitoring system I developed previously was also running parallel to protect my precious Pi!
+6. The Raspberry Pi CPU temperature monitoring system I developed previously was also running parallel to protect my precious Pi.
+7. While larger variants pre-trained / fusion-trained YOLO models max out the pre-set temparature limit for pi (60 c), smaller variants runs easily for the whole day, makes it more practical for low power IoT based applications.
+
 
 # The Raspberry Pi setup #
 ![alt text](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/main/from_pi/raspberry_pi_setup.png)
