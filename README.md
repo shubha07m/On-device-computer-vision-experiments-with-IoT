@@ -49,12 +49,13 @@ I recently used my Raspberry Pi to develop a low-light detection and notificatio
 5. The smaller multimodal model does false detection occasionally, which is extremely rare and acceptable for the speed.
 6. The Raspberry Pi CPU temperature monitoring system I developed previously was also running parallel to protect my precious Pi!
 
-![alt text](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/main/from_pi/yolov8x_fusion_mac.png)
-
 # The Raspberry Pi setup #
 ![alt text](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/main/from_pi/raspberry_pi_setup.png)
 
+
 # Note # 
 If you are wondering why the images here look a bit meh, remember the camera was behind double-glazing glass and a net, thereafter the photo of live detection was taken from that monitor. For reference, an out-of-sample RGB detection example by fusion data trained multimodal YOLOV8X model in my Mac is also shown.
+
+![alt text](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/main/from_pi/yolov8x_fusion_mac.png)
 
 For implementation please refer: https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/tree/main/from_pi
