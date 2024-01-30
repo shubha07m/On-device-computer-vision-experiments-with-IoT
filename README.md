@@ -12,6 +12,8 @@ To know more about the MODIPHY please refer to the preprint available in [arXiv]
 
 Please refer to [yolo_phantom](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/tree/main/yolo_phantom) for the implementation.
 
+Download the [multimodal dataset](https://drive.google.com/drive/folders/1a54u6PpfHOSTL4AME25S1_b1AfTvRCfL?usp=sharing)
+
 ## yolov8 for object detection and tracking from live camera feed ##
 
 ![alt text](https://github.com/shubha07m/yolov8-testing/blob/main/yolov8_snap.png?raw=true)
