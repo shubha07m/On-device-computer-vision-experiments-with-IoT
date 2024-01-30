@@ -1,0 +1,15 @@
+0 person
+1 bicycle
+2 car
+3 motorcycle
+4 train
+5 bus
+6 skateboard
+7 truck
+8 dog
+9 traffic light
+10 fire Hydrant
+11 street sign
+12 stroller
+13 scooter
+14 other vehicle
