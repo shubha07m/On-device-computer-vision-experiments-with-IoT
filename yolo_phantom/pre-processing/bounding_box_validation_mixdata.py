@@ -14,7 +14,7 @@ script is in the same path.
 
 * This script is currently designed for 15 classes as mentioned in FLIR V2 description *
 Author: Shubh
-Date: Sept 10, 2023
+Date: Jan 29, 2024
 """
 
 import cv2
@@ -66,27 +66,22 @@ def draw_bounding_boxes(image, annotations, label_names):
 
 
 def main():
-    thermal_ = int(input('Please enter the modality type: 1 for thermal and 0 for RGB\n'))
-    datatype_ = int(input('Please enter the data type: 1 for train and 0 for val and 2 for test\n'))
+    datatype_ = int(input('Please enter the data type: 1 for train and 0 for val\n'))
 
-    rgb_thermal = 'flirv2_thermal' if thermal_ == 1 else 'flirv2_rgb'
-    data_type = 'train' if datatype_ == 1 else ('val' if datatype_ == 0 else 'test')
+    data_type = 'train' if datatype_ == 1 else 'val'
 
     # Constants for file paths
-    base_path = os.path.join(os.getcwd(), 'flirv2_yoloformat')
-    image_path = os.path.join(base_path, rgb_thermal, data_type, 'images')
+    base_path = os.path.join(os.getcwd(), 'FLIR_V2_multimodal_data_large')
+    image_path = os.path.join(base_path, data_type, 'images')
 
-    # file_id = random.randint(1, 1000)
+    file_id = random.randint(1, 16000) if datatype_ == 1 else (random.randint(1, 400))
 
-    file_id = random.randint(1, 10000) if datatype_ == 1 else (random.randint(1, 1000)
-                                                               if datatype_ == 0 else random.randint(1, 3000))
-
-    text_file_name = f"img{file_id}.txt"
-    img_file_name = f"img{file_id}.jpg"
+    text_file_name = f"{file_id}.txt"
+    img_file_name = f"{file_id}.jpg"
 
     print(img_file_name, text_file_name)
 
-    text_file = os.path.join(base_path, rgb_thermal, data_type, 'labels', text_file_name)
+    text_file = os.path.join(base_path, data_type, 'labels', text_file_name)
     image_file = os.path.join(image_path, img_file_name)
 
     # Load the image
@@ -96,10 +91,7 @@ def main():
     annotations = parse_yolo_annotation(text_file)
 
     # Define label names
-    label_names = ['person', 'bicycle', 'car', 'motorcycle', 'bus',
-                   'train', 'skateboard', 'truck', 'fire Hydrant',
-                   'traffic light', 'dog', 'street sign', 'stroller',
-                   'scooter', 'other vehicle']
+    label_names = ['person', 'car', 'traffic-light', 'street-sign']
 
     # Draw bounding boxes and labels
     image_with_boxes = draw_bounding_boxes(image, annotations, label_names)

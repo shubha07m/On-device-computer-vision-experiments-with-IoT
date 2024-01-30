@@ -14,10 +14,10 @@ else use 0 as argument to access all samples.
 
 3. This script can handle multiple types of missing annotations issues.
 
-* This script can now handle wrongly annotated class ids and also limited class choices * 
+* This script can now handle wrongly annotated class ids and also limited class choices *
 
 Author: Shubh
-Date: Sept 18, 2023
+Date: Jan 29, 2024
 """
 import json
 import os
