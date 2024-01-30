@@ -1,4 +1,5 @@
-##  MODIPHY: Multimodal Obscured Detection for IoT using PHantom Convolution-Enabled Faster YOLO ##
+##  MODIPHY: ##
+## Multimodal Obscured Detection for IoT using PHantom Convolution-Enabled Faster YOLO ##
 
 We developed “YOLO Phantom” for detection in low-light conditions and occluded scenarios within
 resource-constrained IoT applications. We proposed the novel "Phantom Convolution," which enables
@@ -8,6 +9,8 @@ the model demonstrates enhanced vision capabilities in adverse conditions. Our R
 equipped with noIR cameras and integration with AWS IoT Core and SNS showcases a substantial 17%
 and 14% boost in frames per second for thermal and RGB data detection, respectively, compared to the
 baseline YOLOv8n model.
+
+![alt text](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/phantom/ous_images.png)
 
 To know more about the MODIPHY please refer to the preprint available in [arXiv](https://arxiv.org/abs/2310.07592)
 
