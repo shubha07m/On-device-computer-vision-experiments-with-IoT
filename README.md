@@ -14,6 +14,15 @@ Please refer to [yolo_phantom](https://github.com/shubha07m/On-device-computer-v
 
 Download the [multimodal dataset](https://drive.google.com/drive/folders/1a54u6PpfHOSTL4AME25S1_b1AfTvRCfL?usp=sharing)
 
+If you find this work useful concider citing as:
+
+@article{mukherjee2023transformers,
+  title={Transformers for Green Semantic Communication: Less Energy, More Semantics},
+  author={Mukherjee, Shubhabrata and Beard, Cory and Song, Sejun},
+  journal={arXiv preprint arXiv:2310.07592},
+  year={2023}
+}
+
 ## yolov8 for object detection and tracking from live camera feed ##
 
 ![alt text](https://github.com/shubha07m/yolov8-testing/blob/main/yolov8_snap.png?raw=true)
@@ -30,11 +39,6 @@ For reference, here are the relevant resources I employed for Ultralytics and Ca
 https://github.com/ultralytics/ultralytics
 
 https://reincubate.com/camo/
-
-Using the above idea, UNIMODAL was developed for search and disaster recovery and tested with older YOLO versions (V3, V4, and V7). My paper on the same can be accessed here: https://ieeexplore.ieee.org/document/10025436
-
-S. Mukherjee, O. Coudert and C. Beard, "UNIMODAL: UAV-Aided Infrared Imaging Based Object Detection and Localization for Search and Disaster Recovery," 2022 IEEE International Symposium on Technologies for Homeland Security (HST), Boston, MA, USA, 2022, pp. 1-6, doi: 10.1109/HST56032.2022.10025436.
-
 
 ## Raspberry pi based human / other object detection and audio notification with CPU temperature-controlled environment ##
 
@@ -80,3 +84,20 @@ If you are wondering why the images here look a bit meh, remember the camera was
 ![alt text](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/main/from_pi/yolov8x_fusion_mac.png)
 
 For implementation please refer: https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/tree/main/from_pi
+
+## Previous work ##
+
+In my previous research, UNIMODAL was developed for search and disaster recovery using infrared images and tested with older YOLO versions (V3, V4, and V7). My paper on the same can be accessed here: https://ieeexplore.ieee.org/document/10025436
+
+This paper can be cited as below:
+
+@INPROCEEDINGS{10025436,
+  author={Mukherjee, Shubhabrata and Coudert, Oliver and Beard, Cory},
+  booktitle={2022 IEEE International Symposium on Technologies for Homeland Security (HST)}, 
+  title={UNIMODAL: UAV-Aided Infrared Imaging Based Object Detection and Localization for Search and Disaster Recovery}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={1-6},
+  keywords={Location awareness;Training;5G mobile communication;Transfer learning;Object detection;Infrared imaging;US Department of Homeland Security;UAV aided disaster recovery;YOLO based infrared object detection;YOLOV7-official;Autonomous Vehicular Network operations},
+  doi={10.1109/HST56032.2022.10025436}}
