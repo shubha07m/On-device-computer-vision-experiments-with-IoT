@@ -8,20 +8,13 @@ We developed “YOLO Phantom” for detection in low-light conditions and occlud
 
 ![alt text](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/phantom/ous_images.png)
 
-To know more about the MODIPHY please refer to the preprint available in [arXiv](https://arxiv.org/abs/2310.07592)
+To know more about the MODIPHY please refer to the preprint available in [modiphy](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/phantom/yolo_phantom/modiphy.pdf)
 
 Please refer to [yolo_phantom](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/tree/main/yolo_phantom) for the implementation.
 
 Download the [multimodal dataset](https://drive.google.com/drive/folders/1a54u6PpfHOSTL4AME25S1_b1AfTvRCfL?usp=sharing)
 
-If you find this work useful concider citing as:
-
-@article{mukherjee2023transformers,
-  title={Transformers for Green Semantic Communication: Less Energy, More Semantics},
-  author={Mukherjee, Shubhabrata and Beard, Cory and Song, Sejun},
-  journal={arXiv preprint arXiv:2310.07592},
-  year={2023}
-}
+If you find this work useful concider citing us!
 
 ## yolov8 for object detection and tracking from live camera feed ##
 
