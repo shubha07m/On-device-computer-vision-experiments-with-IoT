@@ -8,7 +8,7 @@ We developed “YOLO Phantom” for detection in low-light conditions and occlud
 
 ![alt text](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/phantom/ous_images.png)
 
-To know more about the MODIPHY please refer to the preprint available in [modiphy](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/phantom/yolo_phantom/modiphy.pdf)
+To know more about the MODIPHY please refer to the preprint available in [modiphy](http://tinyurl.com/modiphy)
 
 Please refer to [yolo_phantom](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/tree/main/yolo_phantom) for the implementation.
 
