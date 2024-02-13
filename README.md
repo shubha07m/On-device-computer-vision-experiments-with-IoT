@@ -3,20 +3,39 @@
 
 We developed “YOLO Phantom” for detection in low-light conditions and occluded scenarios within resource-constrained IoT applications. We proposed the novel "Phantom Convolution," which enables YOLO Phantom to achieve comparable accuracy to YOLOv8n with a 43% reduction in parameters and size, resulting in a 19% reduction in GFLOPs. By employing transfer learning on our multimodal dataset, the model demonstrates enhanced vision capabilities in adverse conditions. Our Raspberry Pi IoT platform equipped with noIR cameras and integration with AWS IoT Core and SNS showcases a substantial 17% and 14% boost in frames per second for thermal and RGB data detection, respectively, compared to the baseline YOLOv8n model.
 
+
+### Comparison of small models ###
+
 ![alt text](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/phantom/gflop.png)
 
 
+
+
+### Detection in various low light and occluded conditions ###
+
 ![alt text](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/phantom/ous_images.png)
 
-To know more about the MODIPHY please refer to the preprint available in [modiphy](http://tinyurl.com/modiphy)
+To know more about the MODIPHY please refer to the preprint available in [arXiv](https://arxiv.org/abs/2402.07894)
 
 Please refer to [yolo_phantom](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/tree/main/yolo_phantom) for the implementation.
 
 Download the [multimodal dataset](https://drive.google.com/drive/folders/1a54u6PpfHOSTL4AME25S1_b1AfTvRCfL?usp=sharing)
 
-If you find this work useful concider citing us!
+If you find this work useful concider citing us:
 
-## yolov8 for object detection and tracking from live camera feed ##
+@misc{mukherjee2024modiphy,
+      title={MODIPHY: Multimodal Obscured Detection for IoT using PHantom Convolution-Enabled Faster YOLO}, 
+      author={Shubhabrata Mukherjee and Cory Beard and Zhu Li},
+      year={2024},
+      eprint={2402.07894},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+
+
+## Initial experiments with pre-trained Ultralytics YOLO model ##
+
+### yolov8 for object detection and tracking from live camera feed ###
 
 ![alt text](https://github.com/shubha07m/yolov8-testing/blob/main/yolov8_snap.png?raw=true)
 
