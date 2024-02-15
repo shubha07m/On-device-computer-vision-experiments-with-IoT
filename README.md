@@ -23,15 +23,12 @@ Download the [multimodal dataset](https://drive.google.com/drive/folders/1a54u6P
 
 If you find this work useful concider citing us:
 
-@misc{mukherjee2024modiphy,
-      title={MODIPHY: Multimodal Obscured Detection for IoT using PHantom Convolution-Enabled Faster YOLO}, 
-      author={Shubhabrata Mukherjee and Cory Beard and Zhu Li},
-      year={2024},
-      eprint={2402.07894},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{mukherjee2024modiphy,
+  title={MODIPHY: Multimodal Obscured Detection for IoT using PHantom Convolution-Enabled Faster YOLO},
+  author={Mukherjee, Shubhabrata and Beard, Cory and Li, Zhu},
+  journal={arXiv preprint arXiv:2402.07894},
+  year={2024}
 }
-
 
 ## Initial experiments with pre-trained Ultralytics YOLO model ##
 
