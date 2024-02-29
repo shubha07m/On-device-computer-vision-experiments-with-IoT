@@ -21,7 +21,7 @@ Please refer to [yolo_phantom](https://github.com/shubha07m/On-device-computer-v
 
 Download the [multimodal dataset](https://drive.google.com/drive/folders/1a54u6PpfHOSTL4AME25S1_b1AfTvRCfL?usp=sharing)
 
-If you find this work useful concider citing us:
+If you find this work useful consider citing us:
 
 @article{mukherjee2024modiphy,
   title={MODIPHY: Multimodal Obscured Detection for IoT using PHantom Convolution-Enabled Faster YOLO},
