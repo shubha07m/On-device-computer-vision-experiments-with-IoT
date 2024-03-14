@@ -61,6 +61,7 @@ from .conv import (
     LightConv,
     RepConv,
     SpatialAttention,
+    PhantomConv,
 )
 from .head import OBB, Classify, Detect, Pose, RTDETRDecoder, Segment, WorldDetect
 from .transformer import (
@@ -135,4 +136,5 @@ __all__ = (
     "CBFuse",
     "CBLinear",
     "Silence",
+    "PhantomConv",
 )
