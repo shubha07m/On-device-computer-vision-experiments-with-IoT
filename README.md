@@ -6,14 +6,14 @@ We developed “YOLO Phantom” for detection in low-light conditions and occlud
 
 ### Comparison of small models ###
 
-![alt text](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/phantom/gflop.png)
+![GFLOP Comparison](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/main/gflop.png)
 
 
 
 
 ### Detection in various low light and occluded conditions ###
 
-![alt text](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/phantom/ous_images.png)
+![Low light detections](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/main/ous_images.png)
 
 To know more about the MODIPHY please refer to the preprint available in [arXiv](https://arxiv.org/abs/2402.07894)
 
@@ -30,11 +30,11 @@ Download the [multimodal dataset](https://drive.google.com/drive/folders/1a54u6P
 
 3\. Clone my repository to your computer.
 
-4\. Navigate to the `yolo_phantom` folder and copy the `cfg` and `nn` folders.
+4\. Navigate to the [yolo_phantom](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/tree/main/yolo_phantom) folder and copy the `cfg` and [nn](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/tree/main/yolo_phantom/nn) folders.
 
 5\. Paste the copied `cfg` and `nn` folders into the Ultralytics folder mentioned in step 2.
 
-6\. Verify that the YOLO Phantom model and weights are functioning correctly by using the `yolophantom_testing` file.
+6\. Verify that the YOLO Phantom model and weights are functioning correctly by using the [yolophantom_testing](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/main/yolo_phantom/yolophantom_testing.ipynb) file.
 
 
 ### If you find this work useful consider citing us ###
