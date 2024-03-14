@@ -21,7 +21,23 @@ Please refer to [yolo_phantom](https://github.com/shubha07m/On-device-computer-v
 
 Download the [multimodal dataset](https://drive.google.com/drive/folders/1a54u6PpfHOSTL4AME25S1_b1AfTvRCfL?usp=sharing)
 
-If you find this work useful consider citing us:
+### Steps to use YOLO Phantom ###
+
+1\. Install the Ultralytics library in a Conda or virtual environment.
+
+2\. Once in the environment, verify the installation location of the Ultralytics library using `pip list`. 
+   - The path should end with `/site-packages`, and there should be an `ultralytics` folder inside it.
+
+3\. Clone my repository to your computer.
+
+4\. Navigate to the `yolo_phantom` folder and copy the `cfg` and `nn` folders.
+
+5\. Paste the copied `cfg` and `nn` folders into the Ultralytics folder mentioned in step 2.
+
+6\. Verify that the YOLO Phantom model and weights are functioning correctly by using the `yolophantom_testing` file.
+
+
+### If you find this work useful consider citing us ###
 
 @article{mukherjee2024modiphy,
   title={MODIPHY: Multimodal Obscured Detection for IoT using PHantom Convolution-Enabled Faster YOLO},
