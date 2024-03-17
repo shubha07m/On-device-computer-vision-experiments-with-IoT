@@ -23,7 +23,7 @@ Download the [multimodal dataset](https://drive.google.com/drive/folders/1a54u6P
 
 ### Steps to use YOLO Phantom ###
 
-1\. Install the Ultralytics library in a Conda or virtual environment.
+1\. Install the [Ultralytics](https://github.com/ultralytics/ultralytics) library in a Conda or virtual environment.
 
 2\. Once in the environment, verify the installation location of the Ultralytics library using `pip list`. 
    - The path should end with `/site-packages`, and there should be an `ultralytics` folder inside it.
