@@ -126,3 +126,8 @@ This paper can be cited as below:
   pages={1-6},
   keywords={Location awareness;Training;5G mobile communication;Transfer learning;Object detection;Infrared imaging;US Department of Homeland Security;UAV aided disaster recovery;YOLO based infrared object detection;YOLOV7-official;Autonomous Vehicular Network operations},
   doi={10.1109/HST56032.2022.10025436}}
+
+## Acknowledgement ##
+
+YOLO Phantom code base is built with ![ultralytics](https://github.com/ultralytics/ultralytics) and many of the base modules of YOLOV8 were used.
+Thanks for the great implementations!
