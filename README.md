@@ -22,8 +22,6 @@ We developed “YOLO Phantom” for detection in low-light conditions and occlud
 ![GFLOP Comparison](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/main/gflop.png)
 
 
-
-
 ### Detection in various low light and occluded conditions ###
 
 ![Low light detections](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/main/ous_images.png)
@@ -49,16 +47,6 @@ Download the [multimodal dataset](https://drive.google.com/drive/folders/1a54u6P
 
 6\. Verify that the YOLO Phantom model and weights are functioning correctly by using the [yolophantom_testing](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/main/yolo_phantom/yolophantom_testing.ipynb) file.
 
-## **Cite Our Work**
-
-If you like our work, please consider citing it as follows:
-
-@article{mukherjee2024modiphy,
-  title={MODIPHY: Multimodal Obscured Detection for IoT using PHantom Convolution-Enabled Faster YOLO},
-  author={Mukherjee, Shubhabrata and Beard, Cory and Li, Zhu},
-  journal={arXiv preprint arXiv:2402.07894},
-  year={2024}
-}
 
 ## Initial experiments with pre-trained Ultralytics YOLO model ##
 
@@ -123,6 +111,20 @@ If you are wondering why the images here look a bit meh, remember the camera was
 ![alt text](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/main/from_pi/yolov8x_fusion_mac.png)
 
 For implementation please refer: https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/tree/main/from_pi
+
+
+## **Cite Our Work**
+
+If you like our work, please consider citing it as follows:
+
+```bibtex
+@article{mukherjee2024modiphy,
+  title={MODIPHY: Multimodal Obscured Detection for IoT using PHantom Convolution-Enabled Faster YOLO},
+  author={Mukherjee, Shubhabrata and Beard, Cory and Li, Zhu},
+  journal={arXiv preprint arXiv:2402.07894},
+  year={2024}
+}
+
 
 ## Previous work ##
 
