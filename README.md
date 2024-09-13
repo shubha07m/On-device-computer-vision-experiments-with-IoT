@@ -10,6 +10,8 @@ will be presented at the upcoming **2024 IEEE International Conference on Image 
 
 ✨🌟✨🌟✨🌟✨🌟✨
 
+We are beyond excited to share that our paper has been **recognized as one of the top 5% of accepted papers at ICIP 2024!**  🎉🌟
+
 **Stay tuned for more updates!**
 
 ## Multimodal Obscured Detection for IoT using PHantom Convolution-Enabled Faster YOLO ##
