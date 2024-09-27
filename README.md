@@ -1,5 +1,10 @@
 ##  MODIPHY: ##
 
+## ✨🎉 **Latest Update!** 🎉✨
+
+"MODIPHY" is now available freely on IEEE Xplore, follow [IEEE paper link](https://ieeexplore.ieee.org/document/10648081) for free early access.
+
+
 ## ✨🎉 **Exciting News!** 🎉✨
 
 We are thrilled to announce that our paper:
@@ -120,13 +125,16 @@ For implementation please refer: https://github.com/shubha07m/On-device-computer
 If you like our work, please consider citing it as follows:
 
 ```bibtex
-@article{mukherjee2024modiphy,
-  title={MODIPHY: Multimodal Obscured Detection for IoT using PHantom Convolution-Enabled Faster YOLO},
+@INPROCEEDINGS{10648081,
   author={Mukherjee, Shubhabrata and Beard, Cory and Li, Zhu},
-  journal={arXiv preprint arXiv:2402.07894},
-  year={2024}
-}
-
+  booktitle={2024 IEEE International Conference on Image Processing (ICIP)}, 
+  title={MODIPHY: Multimodal Obscured Detection for IoT using PHantom Convolution-Enabled Faster YOLO}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={2613-2619},
+  keywords={YOLO;Accuracy;Convolution;Computational modeling;Transfer learning;Phantoms;Real-time systems;Low light object detection;Multimodal fusion;IoT;YOLO;Phantom Convolution},
+  doi={10.1109/ICIP51287.2024.10648081}}
 
 ## Previous work ##
 
