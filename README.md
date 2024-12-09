@@ -39,22 +39,62 @@ Please refer to [yolo_phantom](https://github.com/shubha07m/On-device-computer-v
 
 Download the [multimodal dataset](https://drive.google.com/drive/folders/1a54u6PpfHOSTL4AME25S1_b1AfTvRCfL?usp=sharing)
 
-### Steps to use YOLO Phantom ###
+# Steps to Use YOLO Phantom
+=====================================
 
-1\. Install the [Ultralytics](https://github.com/ultralytics/ultralytics) library in a Conda or virtual environment.
+### Prerequisites
+---------------
 
-2\. Once in the environment, verify the installation location of the Ultralytics library using `pip list`. 
-   - The path should end with `/site-packages`, and there should be an `ultralytics` folder inside it.
+* Install the [Ultralytics](https://github.com/ultralytics/ultralytics) library in a Conda or virtual environment.
+* Verify the installation location of the Ultralytics library using `pip list`.
 
-3\. Clone my repository to your computer.
+### Setup
+--------
 
-4\. Navigate to the [yolo_phantom](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/tree/main/yolo_phantom) folder and copy the `cfg` and [nn](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/tree/main/yolo_phantom/nn) folders.
+### Step 1: Clone Repository
+Clone this repository to your computer.
 
-5\. Paste the copied `cfg` and `nn` folders into the Ultralytics folder mentioned in step 2.
+### Step 2: Copy Folders
+Navigate to the [yolo_phantom](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/tree/main/yolo_phantom) folder and copy the `cfg` and `nn` folders.
 
-6\. Verify that the YOLO Phantom model and weights are functioning correctly by using the [yolophantom_testing](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/main/yolo_phantom/yolophantom_testing.ipynb) file.
+### Step 3: Paste Folders
+Paste and replace the copied `cfg` and `nn` folders into the Ultralytics folder mentioned in the prerequisites.
+
+### Verification
+--------------
+
+### Step 4: Test YOLO Phantom
+Verify that the YOLO Phantom model and weights are functioning correctly by using the [yolov8_testing](https://github.com/shubha07m/On-device-computer-vision-experiments-with-IoT/blob/main/yolo_phantom/yolov8_testing.py) file.
 
 
+## Additional Changes
+--------------------
+
+For further reference, the changes made to run YOLO Phantom are documented below:
+
+
+### Modified Files
+-----------------
+
+#### 1. yolo_phantom.yaml
+
+* Location: `../ultralytics/ultralytics/cfg/models/v8`
+* Change: Kept `yolo_phantom.yaml` file here.
+
+#### 2. tasks.py
+
+* Location: `../ultralytics/ultralytics/nn/tasks.py`
+* Change: Added `PhantomConv` (indicated by the comment `# added PhantomConv here`).
+
+#### 3. __init__.py
+
+* Location: `../ultralytics/ultralytics/nn/modules/__init__.py`
+* Change: Modified `__init__.py` file. (indicated by the comment `# added PhantomConv here`).
+
+#### 4. conv.py
+
+* Location: `../ultralytics/ultralytics/nn/modules/conv.py`
+* Change: Added changes to `conv.py` (indicated by the comment `# added PhantomConv here`).
 ## Initial experiments with pre-trained Ultralytics YOLO model ##
 
 ### yolov8 for object detection and tracking from live camera feed ###
